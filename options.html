@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humble AI Chat Assistant Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="options.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Enhanced Background Elements -->
+  <div class="background-container">
+    <!-- Ribbon pattern container -->
+    <div class="ribbon-pattern">
+      <div class="ribbon ribbon-1"></div>
+      <div class="ribbon ribbon-2"></div>
+      <div class="ribbon ribbon-3"></div>
+      <div class="ribbon ribbon-4"></div>
+    </div>
+    
+    <!-- Original patterns -->
+    <div class="bg-pattern pattern-1"></div>
+    <div class="bg-pattern pattern-2"></div>
+    <div class="bg-pattern pattern-3"></div>
+    <div class="bg-pattern pattern-4"></div>
+    <div class="bg-pattern pattern-5"></div>
+    
+    <!-- New animated elements -->
+    <div class="particles-container">
+      <div class="particle p1"></div>
+      <div class="particle p2"></div>
+      <div class="particle p3"></div>
+      <div class="particle p4"></div>
+      <div class="particle p5"></div>
+      <div class="particle p6"></div>
+      <div class="particle p7"></div>
+      <div class="particle p8"></div>
+      <div class="particle p9"></div>
+      <div class="particle p10"></div>
+      <div class="particle p11"></div>
+      <div class="particle p12"></div>
+      <div class="particle p13"></div>
+      <div class="particle p14"></div>
+      <div class="particle p15"></div>
+    </div>
+    
+    <!-- Animated gradient overlay -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Animated mesh grid -->
+    <div class="mesh-grid"></div>
+    
+    <!-- Animated wave -->
+    <div class="wave-container">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    
+    <!-- Background gradient -->
+    <div class="bg-gradient"></div>
+  </div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="logo-container">
+        <div class="logo-icon">H</div>
+        <h1>Humble AI Settings</h1>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="icon-button" aria-label="Toggle theme">
+          <svg id="lightModeIcon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2"/><path d="M12 21v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 18.36l1.42 1.42"/><path d="M1 12h2"/><path d="M21 12h2"/><path d="M4.22 19.78l1.42-1.42"/><path d="M18.36 5.64l1.42-1.42"/></svg>
+          <svg id="darkModeIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+    </header>
+    
+    <div id="notification" class="notification-banner hidden">
+      <span id="notificationMessage">Message goes here</span>
+      <button id="dismissNotification" class="icon-button-small" aria-label="Dismiss">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+    </div>
+    
+    <div class="settings-container">
+      <div class="settings-card api-key-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+          </div>
+          <h2>API Key</h2>
+        </div>
+        <div class="card-content">
+          <div class="input-group">
+            <label for="apiKey">Humble API Key</label>
+            <div class="input-wrapper">
+              <input type="password" id="apiKey" placeholder="Enter your Humble API key">
+              <button id="toggleApiKey" class="toggle-password" aria-label="Toggle password visibility">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <p class="input-help">Your API key is stored locally and is only used to communicate with Humble AI.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-card base-ids-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.08V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h6"></path><path d="M14 3v5h5M18 21v-6M15 18h6"></path></svg>
+          </div>
+          <h2>BASE IDs</h2>
+        </div>
+        <div class="card-content">
+          <div class="base-ids-table-container">
+            <table class="base-ids-table" id="baseIdTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>BASE ID</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="baseIdTableBody">
+                <!-- Base IDs will be populated here -->
+                <tr class="empty-row">
+                  <td colspan="3">No BASE IDs configured</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="add-base-id-form">
+            <h3>Add New BASE ID</h3>
+            <div class="input-group">
+              <label for="baseIdName">Name</label>
+              <input type="text" id="baseIdName" placeholder="Enter a name for this BASE ID">
+            </div>
+            <div class="input-group">
+              <label for="baseIdValue">BASE ID</label>
+              <input type="text" id="baseIdValue" placeholder="Enter the BASE ID">
+            </div>
+            <button id="addBaseIdBtn" class="primary-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+              Add BASE ID
+            </button>
+          </div>
+          <p class="input-help">BASE IDs are required to create and access chats. You can add multiple BASE IDs and switch between them.</p>
+        </div>
+      </div>
+      
+      <div class="settings-card">
+        <div class="card-header">
+          <div class="card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          </div>
+          <h2>Additional Settings</h2>
+        </div>
+        <div class="card-content">
+          <div class="settings-group">
+            <div class="setting-item">
+              <div class="setting-info">
+                <h3>Keyboard Shortcut</h3>
+                <p>Current shortcut: <span id="currentShortcut" class="shortcut-badge">Ctrl+Shift+Space</span></p>
+              </div>
+              <p class="input-help">To change the keyboard shortcut, visit chrome://extensions/shortcuts</p>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <h3>Error Logging</h3>
+                <p>Logs errors to help troubleshoot issues. No personal data is collected.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="errorLogging">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <div class="setting-item">
+              <div class="setting-info">
+                <h3>Debug Mode</h3>
+                <p>Enables detailed logging and debug tools for troubleshooting.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="debugMode">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button id="testConnectionBtn" class="secondary-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+          Test Connection
+        </button>
+        <button id="saveBtn" class="primary-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+          Save Settings
+        </button>
+      </div>
+    </div>
+    
+    <div class="troubleshooting-section">
+      <h2>Troubleshooting</h2>
+      <div class="troubleshooting-buttons">
+        <button id="resetChatBtn" class="warning-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M3 21v-5h5"></path></svg>
+          Reset Chat Session
+        </button>
+        <button id="clearStorageBtn" class="danger-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+          Clear All Data
+        </button>
+        <button id="exportLogsBtn" class="info-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Export Debug Logs
+        </button>
+      </div>
+    </div>
+    
+    <footer class="app-footer">
+      <p>Humble AI Chat Assistant v1.0</p>
+    </footer>
+  </div>
+  
+  <!-- Edit BASE ID Modal -->
+  <div id="editBaseIdModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit BASE ID</h3>
+        <button id="closeEditModal" class="icon-button-small" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <label for="editBaseIdName">Name</label>
+          <input type="text" id="editBaseIdName" placeholder="Enter name for this BASE ID">
+        </div>
+        <div class="input-group">
+          <label for="editBaseIdValue">BASE ID</label>
+          <input type="text" id="editBaseIdValue" placeholder="Enter the BASE ID">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelEditBaseId" class="secondary-button">Cancel</button>
+        <button id="saveEditBaseId" class="primary-button">Save Changes</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="options.js"></script>
+</body>
+</html>

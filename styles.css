@@ -1,0 +1,1106 @@
+/* Add theme variables at the top of the :root section */
+:root {
+  /* Light Theme (Default) */
+  --apple-background: #f8f9fc;
+  --apple-card-bg: rgba(255, 255, 255, 0.6);
+  --apple-accent: #5e5ce6; /* Purple accent to match Humble logo */
+  --apple-accent-rgb: 94, 92, 230;
+  --apple-accent-hover: #4a48c4;
+  --apple-text: #1d1d1f;
+  --apple-text-secondary: #86868b;
+  --apple-border: rgba(0, 0, 0, 0.08);
+  --apple-error: #ff3b30;
+  --apple-warning: #ff9500;
+  --apple-success: #34c759;
+  --apple-info: #007aff;
+  --apple-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --apple-shadow-strong: 0 12px 32px rgba(0, 0, 0, 0.08);
+  --apple-radius-sm: 12px;
+  --apple-radius-md: 16px;
+  --apple-radius-lg: 20px;
+  --apple-transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --apple-message-user-bg: var(--apple-accent);
+  --apple-message-user-text: white;
+  --apple-message-assistant-bg: rgba(142, 142, 147, 0.08);
+  --apple-message-assistant-text: var(--apple-text);
+  --apple-card-border: var(--apple-border);
+  --apple-backdrop-opacity: 0.8;
+
+  /* Purple accent colors */
+  --humble-purple: #5e5ce6;
+  --humble-purple-light: #7a78f0;
+  --humble-purple-dark: #4a48c4;
+  --humble-purple-bg: rgba(94, 92, 230, 0.08);
+
+  /* Gradients */
+  --gradient-purple: linear-gradient(135deg, #5e5ce6, #8e8cf2);
+  --gradient-bg: linear-gradient(160deg, #f8f9fc, #eef1f8);
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --apple-background: #121214;
+  --apple-card-bg: rgba(30, 30, 32, 0.6);
+  --apple-accent: #7a78f0; /* Lighter purple for dark mode */
+  --apple-accent-rgb: 122, 120, 240;
+  --apple-accent-hover: #8e8cf2;
+  --apple-text: #ffffff;
+  --apple-text-secondary: #98989d;
+  --apple-border: rgba(255, 255, 255, 0.08);
+  --apple-error: #ff453a;
+  --apple-warning: #ff9f0a;
+  --apple-success: #30d158;
+  --apple-info: #0a84ff;
+  --apple-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --apple-shadow-strong: 0 12px 32px rgba(0, 0, 0, 0.3);
+  --apple-message-user-bg: var(--apple-accent);
+  --apple-message-user-text: white;
+  --apple-message-assistant-bg: rgba(70, 70, 72, 0.4);
+  --apple-message-assistant-text: var(--apple-text);
+  --apple-card-border: var(--apple-border);
+  --apple-backdrop-opacity: 0.7;
+
+  /* Purple accent colors for dark mode */
+  --humble-purple: #7a78f0;
+  --humble-purple-light: #8e8cf2;
+  --humble-purple-dark: #5e5ce6;
+  --humble-purple-bg: rgba(122, 120, 240, 0.12);
+
+  /* Gradients for dark mode */
+  --gradient-purple: linear-gradient(135deg, #7a78f0, #9e9cf8);
+  --gradient-bg: linear-gradient(160deg, #121214, #1a1a1c);
+}
+
+/* Add transition to body for smooth theme switching */
+body {
+  transition: background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  background: var(--gradient-bg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--apple-text);
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+  line-height: 1.5;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 20px;
+  gap: 16px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 8px;
+  position: relative;
+  animation: fadeInDown 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--gradient-purple);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(var(--apple-accent-rgb), 0.3);
+}
+
+.app-header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--apple-text);
+  position: relative;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Improve button interactivity */
+button {
+  position: relative;
+  z-index: 10;
+  cursor: pointer !important;
+}
+
+/* Buttons */
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--apple-card-bg);
+  border: none;
+  color: var(--apple-text);
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--apple-shadow);
+  border: 1px solid var(--apple-border);
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(var(--apple-accent-rgb), 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.icon-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--apple-shadow-strong);
+}
+
+.icon-button:hover::before {
+  opacity: 1;
+}
+
+.icon-button:active {
+  transform: scale(0.95);
+}
+
+.icon-button-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  color: var(--apple-text-secondary);
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+}
+
+.icon-button-small:hover {
+  color: var(--apple-text);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.text-button {
+  background: none;
+  border: none;
+  color: var(--apple-accent);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  padding: 6px 12px;
+  border-radius: var(--apple-radius-sm);
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+  overflow: hidden;
+}
+
+.text-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--humble-purple-bg);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--apple-radius-sm);
+  z-index: -1;
+}
+
+.text-button:hover {
+  color: var(--apple-accent-hover);
+}
+
+.text-button:hover::before {
+  opacity: 1;
+}
+
+.send-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-purple);
+  border: none;
+  color: white;
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(var(--apple-accent-rgb), 0.3);
+}
+
+.send-button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(var(--apple-accent-rgb), 0.4);
+}
+
+.send-button:active {
+  transform: scale(0.95);
+}
+
+/* Controls Container */
+.controls-container {
+  display: flex;
+  gap: 12px;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  flex-wrap: wrap;
+}
+
+.new-chat-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  height: 40px;
+  border-radius: var(--apple-radius-md);
+  background: var(--gradient-purple);
+  border: none;
+  color: white;
+  font-weight: 500;
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  box-shadow: 0 4px 12px rgba(var(--apple-accent-rgb), 0.3);
+}
+
+.new-chat-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--apple-accent-rgb), 0.4);
+}
+
+.new-chat-button:active {
+  transform: scale(0.98);
+}
+
+/* Notification Banner */
+.notification-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--apple-radius-md);
+  background-color: var(--apple-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--apple-shadow);
+  transition: var(--apple-transition);
+  border: 1px solid var(--apple-border);
+  animation: slideDown 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.notification-banner.hidden {
+  display: none;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes typingBubble {
+  0% {
+    transform: translateY(0px);
+  }
+  28% {
+    transform: translateY(-5px);
+  }
+  44% {
+    transform: translateY(0px);
+  }
+}
+
+/* Enhanced animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  70% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* BASE ID Selector */
+.select-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: var(--apple-card-bg);
+  border-radius: var(--apple-radius-md);
+  border: 1px solid var(--apple-border);
+  overflow: hidden;
+  box-shadow: var(--apple-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.select-wrapper:hover {
+  border-color: var(--humble-purple-light);
+  box-shadow: 0 4px 12px rgba(var(--apple-accent-rgb), 0.15);
+}
+
+.dropdown {
+  flex: 1;
+  padding: 10px 16px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--apple-text);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer !important;
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+}
+
+.dropdown:focus {
+  outline: none;
+}
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--apple-border);
+  color: var(--apple-text-secondary);
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+}
+
+.refresh-button:hover {
+  background-color: var(--humble-purple-bg);
+  color: var(--humble-purple);
+}
+
+/* Debug Chat ID Display */
+.debug-chat-id {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: var(--apple-radius-sm);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 12px;
+  font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  transition: var(--apple-transition);
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.debug-chat-id.hidden {
+  display: none;
+}
+
+.chat-id-label {
+  font-weight: 500;
+}
+
+.chat-id-value {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  pointer-events: all !important;
+  z-index: 10;
+  position: relative;
+}
+
+.copy-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.debug-chat-id.flash {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Chat Container */
+.chat-container-wrapper {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+  perspective: 1000px;
+}
+
+.chat-container {
+  height: 100%;
+  padding: 16px;
+  border-radius: var(--apple-radius-lg);
+  background-color: var(--apple-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--apple-shadow);
+  overflow-y: auto;
+  border: 1px solid var(--apple-border);
+  scroll-behavior: smooth;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  max-width: 100%;
+  animation: fadeIn 0.4s ease-out;
+  transform-origin: center;
+}
+
+.message-header {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 12px;
+}
+
+.user-header {
+  text-align: right;
+  color: var(--humble-purple);
+}
+
+.assistant-header {
+  color: var(--apple-text);
+}
+
+/* Update existing styles to use the new variables */
+.user-message {
+  background-color: var(--apple-message-user-bg);
+  color: var(--apple-message-user-text);
+  border-radius: 18px 18px 4px 18px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  max-width: 85%;
+  align-self: flex-end;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: 0 4px 16px rgba(var(--apple-accent-rgb), 0.2);
+  animation: fadeInRight 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: bottom right;
+}
+
+.assistant-message {
+  background-color: var(--apple-message-assistant-bg);
+  color: var(--apple-message-assistant-text);
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  max-width: 85%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: var(--apple-shadow);
+  animation: fadeInLeft 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: bottom left;
+}
+
+/* Scroll to Bottom Button */
+.scroll-to-bottom-button {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--apple-card-bg);
+  border: 1px solid var(--apple-border);
+  color: var(--apple-text);
+  cursor: pointer !important;
+  transition: var(--apple-transition);
+  box-shadow: var(--apple-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: popIn 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  pointer-events: all !important;
+  z-index: 10;
+}
+
+.scroll-to-bottom-button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: var(--apple-shadow-strong);
+  color: var(--humble-purple);
+}
+
+.scroll-to-bottom-button.hidden {
+  display: none;
+}
+
+/* Message Input */
+.message-input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.message-input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--apple-border);
+  background-color: var(--apple-card-bg);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--apple-text);
+  transition: var(--apple-transition);
+  box-shadow: var(--apple-shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  height: 44px;
+}
+
+.message-input:focus {
+  outline: none;
+  border-color: var(--humble-purple);
+  box-shadow: 0 0 0 3px rgba(var(--apple-accent-rgb), 0.15);
+  transform: translateY(-2px);
+}
+
+.message-input::placeholder {
+  color: var(--apple-text-secondary);
+}
+
+/* Footer */
+.app-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  animation: fadeInUp 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.api-status {
+  font-size: 12px;
+  color: var(--apple-text-secondary);
+}
+
+/* Debug Panel */
+.debug-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--apple-background);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.debug-panel.hidden {
+  display: none;
+}
+
+.debug-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.debug-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--humble-purple);
+}
+
+.debug-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.debug-output {
+  flex: 1;
+  padding: 16px;
+  border-radius: var(--apple-radius-lg);
+  background-color: var(--apple-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--apple-shadow);
+  overflow-y: auto;
+  font-family: "SF Mono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  border: 1px solid var(--apple-border);
+}
+
+.debug-entry {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--apple-border);
+}
+
+.debug-timestamp {
+  color: var(--apple-text-secondary);
+  margin-right: 8px;
+  font-weight: 500;
+}
+
+.debug-data {
+  margin-top: 4px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: var(--apple-radius-sm);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--apple-accent-rgb), 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--apple-accent-rgb), 0.3);
+}
+
+/* Status Colors */
+.text-green-600 {
+  color: var(--apple-success);
+}
+
+.text-yellow-600 {
+  color: var(--apple-warning);
+}
+
+.text-red-600 {
+  color: var(--apple-error);
+}
+
+/* Notification Types */
+#errorBanner.bg-red-500 {
+  background-color: var(--apple-error);
+  color: white;
+}
+
+#errorBanner.bg-yellow-500 {
+  background-color: var(--apple-warning);
+  color: white;
+}
+
+#errorBanner.bg-blue-500 {
+  background-color: var(--apple-info);
+  color: white;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 400px) {
+  .app-container {
+    padding: 16px;
+  }
+
+  .chat-container {
+    padding: 12px;
+  }
+
+  .user-message,
+  .assistant-message {
+    max-width: 90%;
+  }
+}
+
+/* Add styles for the theme toggle icons */
+#lightModeIcon,
+#darkModeIcon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#lightModeIcon.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+#darkModeIcon.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Enhanced typing indicator styles */
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--apple-message-assistant-bg);
+  border-radius: 18px;
+  padding: 12px 17px;
+  margin-bottom: 10px;
+  box-shadow: var(--apple-shadow);
+  animation: fadeInLeft 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.typing-indicator span {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: var(--humble-purple);
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.6;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation: typingBubble 1.3s infinite ease-in-out;
+  animation-delay: 0ms;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation: typingBubble 1.3s infinite ease-in-out;
+  animation-delay: 160ms;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation: typingBubble 1.3s infinite ease-in-out;
+  animation-delay: 320ms;
+}
+
+/* Add support for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Fix any CSS issues that might be affecting button functionality */
+.icon-button,
+.send-button,
+.text-button,
+.icon-button-small,
+.refresh-button,
+.copy-button,
+.scroll-to-bottom-button,
+.new-chat-button {
+  cursor: pointer;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+/* Fix theme toggle button */
+#themeToggleBtn {
+  position: relative;
+  overflow: visible;
+}
+
+/* Ensure the theme toggle icons don't block clicks */
+#lightModeIcon,
+#darkModeIcon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Allow clicks to pass through to the button */
+}
+
+/* Ensure animations don't interfere with click events */
+.user-message,
+.assistant-message,
+.message-container {
+  pointer-events: auto;
+}
+
+/* Fix any z-index issues */
+.app-header,
+.header-actions,
+.message-input-container,
+.app-footer {
+  z-index: 2;
+  position: relative;
+}
+
+/* Empty state styling */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  color: var(--apple-text-secondary);
+  animation: fadeIn 0.8s ease;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: var(--humble-purple-light);
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+.empty-state-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--apple-text);
+}
+
+.empty-state-description {
+  font-size: 14px;
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+
+/* Floating animation for elements */
+.float-animation {
+  animation: floatUp 6s ease-in-out infinite;
+}
+
+/* Add styles for the context selector */
+.context-wrapper {
+  margin-left: 12px;
+  flex-grow: 0;
+  flex-basis: 40%;
+}
+
+.controls-container {
+  display: flex;
+  gap: 12px;
+  animation: fadeInUp 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  flex-wrap: wrap;
+}
+
+/* Make the BASE ID selector take less space when context selector is visible */
+.controls-container .select-wrapper:first-child {
+  flex-grow: 1;
+  flex-basis: 30%;
+}
+
+/* Make the New Chat button appear on the next row when space is limited */
+@media (max-width: 400px) {
+  .context-wrapper {
+    margin-left: 0;
+    flex-basis: 100%;
+    margin-top: 8px;
+  }
+
+  .controls-container .select-wrapper:first-child {
+    flex-basis: 100%;
+  }
+
+  .new-chat-button {
+    margin-top: 8px;
+    width: 100%;
+  }
+}
